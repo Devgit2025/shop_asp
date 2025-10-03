@@ -11,7 +11,7 @@
             </div>
 
             <div class="modal-body p-5 pt-0">
-                <form class="" action="" method="post">
+                <form asp-controller="Customer" asp-action="Customerlogin" method="get">
                     <div class="form-floating mb-3">
                         <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username" require>
                         <label for="floatingInput">Username</label>
@@ -20,7 +20,7 @@
                         <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" require>
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <a class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Login</a>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Login</button>
                     <small class="text-body-secondary">You can <a asp-controller="Customer" asp-action="Register">Register</a> now.</small>
                     <hr class="my-4">
                 </form>
