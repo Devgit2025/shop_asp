@@ -41,7 +41,7 @@ namespace food_asp.Controllers
             _db.tb_Customers.Add(obj);
             _db.SaveChanges();
 
-            return View();
+            return RedirectToAction("Customerlogin");
         }
     }
 }
