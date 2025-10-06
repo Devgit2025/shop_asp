@@ -17,35 +17,45 @@ namespace food_asp.Controllers
             return View();
         }
 
-        public IActionResult Register() 
+        public IActionResult Register()
         {
-            
+
             return View();
         }
 
-        public IActionResult Customerlogin() 
+        public IActionResult Customerlogin()
         {
             //select data
-            IEnumerable<Customer> allCustomer = _db.tb_Customers;
+            /*IEnumerable<Customer> allCustomer = _db.tb_Customers;
 
-            return View(allCustomer);
+            return View(allCustomer);*/
+            return View();
         }
 
         //post method
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(Customer obj)
+        public IActionResult Register(Customer obj_register)
         {
-            Debug.WriteLine("Cutomer Fullname " + obj.Cus_Fullname);
+            Debug.WriteLine("Cutomer Fullname " + obj_register.Cus_Fullname);
             if (ModelState.IsValid)
             {
-                _db.tb_Customers.Add(obj);
+                _db.tb_Customers.Add(obj_register);
                 _db.SaveChanges();
 
                 return RedirectToAction("Customerlogin");
             }
-            return View(obj);
-            
+            return View(obj_register);
+
+        }
+
+        //post login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Customerlogin(Customer obj_login) 
+        {
+            Debug.WriteLine("Login Username: " + obj_login.Cus_Username);
+            return View();
         }
     }
 }

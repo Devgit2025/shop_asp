@@ -1,19 +1,7 @@
-﻿@model IEnumerable<food_asp.Models.Customer>;
+﻿@model Customer;
 @{
     ViewData["Title"] = "Login";
 }
-<h1>Test Select Data</h1>
-
-@foreach (var customer in Model)
-{
-    <h3>ID : @customer.Cus_Id</h3>
-    <p>Fullname : @customer.Cus_Fullname</p>
-    <p>Email : @customer.Cus_Email</p>
-    <p>Username : @customer.Cus_Username</p>
-    <p>Password : @customer.Cus_Password</p>
-    <p>Tel. : @customer.Cus_Tel</p>
-
-} 
 
 
 <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
@@ -26,12 +14,16 @@
             <div class="modal-body p-5 pt-0">
                 <form asp-controller="Customer" asp-action="Customerlogin" method="post">
                     <div class="form-floating mb-3">
-                        <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username" require>
+                        <input type="text" asp-for="Cus_Username" class="form-control" id="floatingInput" placeholder="Username" require>
                         <label for="floatingInput">Username</label>
+                        <span asp-validation-for="Cus_Username"></span>
+
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" require>
+                        <input type="password" asp-for="Cus_Password" class="form-control" id="floatingPassword" placeholder="Password" require>
                         <label for="floatingPassword">Password</label>
+                        <span asp-validation-for="Cus_Password"></span>
+
                     </div>
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Login</button>
                     <small class="text-body-secondary">You can <a asp-controller="Customer" asp-action="Register">Register</a> now.</small>
