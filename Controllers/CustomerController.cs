@@ -25,7 +25,7 @@ namespace food_asp.Controllers
 
         public IActionResult Customerlogin() 
         {
-            //test
+            //select data
             IEnumerable<Customer> allCustomer = _db.tb_Customers;
 
             return View(allCustomer);
@@ -37,11 +37,15 @@ namespace food_asp.Controllers
         public IActionResult Register(Customer obj)
         {
             Debug.WriteLine("Cutomer Fullname " + obj.Cus_Fullname);
+            if (ModelState.IsValid)
+            {
+                _db.tb_Customers.Add(obj);
+                _db.SaveChanges();
 
-            _db.tb_Customers.Add(obj);
-            _db.SaveChanges();
-
-            return RedirectToAction("Customerlogin");
+                return RedirectToAction("Customerlogin");
+            }
+            return View(obj);
+            
         }
     }
 }

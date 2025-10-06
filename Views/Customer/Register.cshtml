@@ -16,23 +16,32 @@
                     <div class="form-floating mb-3">
                         <input type="text" asp-for="Cus_Fullname"  class="form-control rounded-3" id="floatingInput" placeholder="Fullname" fdprocessedid="hmc45j" require>
                         <label asp-for="Cus_Fullname"></label>
+                        <span asp-validation-for="Cus_Fullname" class="text-danger"></span>
                     </div>
 
                     <div class="form-floating mb-3">
                         <input type="email" asp-for="Cus_Email"  class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" fdprocessedid="hmc45j" require>
                         <label asp-for="Cus_Email"></label>
+                        <span asp-validation-for="Cus_Email" class="text-danger"></span>
+
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" asp-for="Cus_Username" class="form-control rounded-3" id="floatingInput" placeholder="Username" fdprocessedid="hmc45j" require>
                         <label asp-for="Cus_Username"></label>
+                        <span asp-validation-for="Cus_Username" class="text-danger"></span>
+
                     </div>
                     <div class="form-floating mb-3">
                         <input type="password" asp-for="Cus_Password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" fdprocessedid="31so" require>
                         <label asp-for="Cus_Password"></label>
+                        <span asp-validation-for="Cus_Password" class="text-danger"></span>
+
                     </div>
                     <div class="form-floating mb-3">
                         <input type="tel" asp-for="Cus_Tel"  class="form-control rounded-3" id="floatingInput" placeholder="Tel." require>
                         <label asp-for="Cus_Tel"></label>
+                        <span asp-validation-for="Cus_Tel" class="text-danger"></span>
+
                     </div>
 
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Resigter</button>
