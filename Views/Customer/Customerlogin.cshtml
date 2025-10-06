@@ -1,7 +1,19 @@
-﻿
+﻿@model IEnumerable<food_asp.Models.Customer>;
 @{
     ViewData["Title"] = "Login";
 }
+<h1>Test Select Data</h1>
+
+@foreach (var customer in Model)
+{
+    <p>Fullname : @customer.Cus_Fullname</p>
+    <p>Email : @customer.Cus_Email</p>
+    <p>Username : @customer.Cus_Username</p>
+    <p>Password : @customer.Cus_Password</p>
+    <p>Tel. : @customer.Cus_Tel</p>
+
+} 
+
 
 <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
     <div class="modal-dialog" role="document">
@@ -11,7 +23,7 @@
             </div>
 
             <div class="modal-body p-5 pt-0">
-                <form asp-controller="Customer" asp-action="Customerlogin" method="get">
+                <form asp-controller="Customer" asp-action="Customerlogin" method="post">
                     <div class="form-floating mb-3">
                         <input type="text" name="username" class="form-control" id="floatingInput" placeholder="Username" require>
                         <label for="floatingInput">Username</label>
